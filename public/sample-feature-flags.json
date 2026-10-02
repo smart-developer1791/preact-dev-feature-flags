@@ -1,0 +1,19 @@
+{
+  "environmentNames": ["Production", "Staging", "Development"],
+  "sampleUsers": [
+    { "id": "usr_ada", "email": "ada@northstar.io", "country": "DE", "plan": "enterprise", "companySize": 840 },
+    { "id": "usr_mika", "email": "mika@studio.dev", "country": "FI", "plan": "pro", "companySize": 24 },
+    { "id": "usr_sam", "email": "sam@example.com", "country": "US", "plan": "free", "companySize": 3 }
+  ],
+  "flags": [
+    { "id": "flag-checkout", "key": "checkout.compact-flow", "name": "Compact checkout", "description": "Moves billing and confirmation into a single guided checkout flow.", "owner": "Growth Platform", "updatedAt": "2026-09-20T14:10:00.000Z", "environments": { "Production": { "enabled": true, "rollout": 35, "rules": [{ "id": "rule-enterprise", "attribute": "plan", "operator": "equals", "value": "enterprise", "serve": true }] }, "Staging": { "enabled": true, "rollout": 100, "rules": [] }, "Development": { "enabled": true, "rollout": 100, "rules": [] } } },
+    { "id": "flag-search", "key": "search.semantic-v2", "name": "Semantic search v2", "description": "Enables the hybrid keyword and vector ranking pipeline.", "owner": "Discovery", "updatedAt": "2026-09-19T09:30:00.000Z", "environments": { "Production": { "enabled": true, "rollout": 10, "rules": [{ "id": "rule-eu", "attribute": "country", "operator": "equals", "value": "DE", "serve": false }] }, "Staging": { "enabled": true, "rollout": 100, "rules": [] }, "Development": { "enabled": true, "rollout": 100, "rules": [] } } },
+    { "id": "flag-export", "key": "reports.instant-export", "name": "Instant report export", "description": "Streams large report archives directly from object storage.", "owner": "Reporting", "updatedAt": "2026-09-18T16:45:00.000Z", "environments": { "Production": { "enabled": false, "rollout": 0, "rules": [] }, "Staging": { "enabled": true, "rollout": 50, "rules": [] }, "Development": { "enabled": true, "rollout": 100, "rules": [] } } },
+    { "id": "flag-audit", "key": "admin.audit-timeline", "name": "Audit timeline", "description": "Adds a unified timeline to administration workflows.", "owner": "Core Admin", "updatedAt": "2026-09-17T11:05:00.000Z", "environments": { "Production": { "enabled": true, "rollout": 100, "rules": [] }, "Staging": { "enabled": true, "rollout": 100, "rules": [] }, "Development": { "enabled": true, "rollout": 100, "rules": [] } } }
+  ],
+  "audit": [
+    { "id": "audit-1", "at": "2026-09-20T14:10:00.000Z", "actor": "Mira Chen", "message": "Increased checkout.compact-flow rollout from 20% to 35% in Production." },
+    { "id": "audit-2", "at": "2026-09-19T09:30:00.000Z", "actor": "Jon Bell", "message": "Added country exclusion to search.semantic-v2 in Production." },
+    { "id": "audit-3", "at": "2026-09-18T16:45:00.000Z", "actor": "Priya N.", "message": "Enabled reports.instant-export for 50% in Staging." }
+  ]
+}
